@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/articles', 'ArticlesController@showAll');
+Route::get('/articles/{id}', 'ArticlesController@showOne');
