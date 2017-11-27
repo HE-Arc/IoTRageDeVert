@@ -17,3 +17,7 @@ Route::get('/', function () {
 
 Route::get('/articles', 'ArticlesController@showAll');
 Route::get('/articles/{id}', 'ArticlesController@showOne');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
