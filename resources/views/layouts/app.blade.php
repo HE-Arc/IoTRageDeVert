@@ -12,7 +12,7 @@
       @include('inc/navbar')
       @section('header')
       <div class="container-fluid">
-            <h1>Open-Review</h1>
+            <h1><b>Open-Review</b></h1>
       </div>
       @show
 <!--      @section('sidebar')
