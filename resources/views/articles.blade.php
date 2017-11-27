@@ -17,8 +17,8 @@ $articles = App\Article::all();
 @foreach($articles as $a)
   @php $reviews = $a->reviews;
   @endphp
-  <div class="article-container rounded">
-    <div class="row">
+  <div class="rounded">
+    <div class="article-container row">
       <div class="col-xs-12">
         <div class="col-md-9 col-xs-12 bg-dark text-light rounded">
           <h3><a class="text-light" href = "articles/{{$a->id}}">{{$a->title}}</a></h3>
