@@ -8354,3 +8354,19 @@ p {
   overflow-wrap: break-word;
 }
 
+.inline-article-element {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.article-container {
+  padding-bottom: 2.0em;
+}
+
+.author-line {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
