@@ -5,7 +5,6 @@
     @parent
     <p>This is appended to the master sidebar.</p>
 @endsection
-
 @section('content')
 @php
 Use App\Article;
@@ -14,6 +13,8 @@ $articles = App\Article::all();
 <div class="container-fluid">
 <h2>{{__('articles.header')}}</h2>
 @foreach($articles as $a)
+  @php $reviews = $a->reviews;
+  @endphp
   <div class="article-container rounded">
     <div class="row">
       <div class="col-xs-12">
@@ -24,13 +25,12 @@ $articles = App\Article::all();
           </div>
         </div>
         <div class="col-md-3 col-xs-12 bg-light">
-          <a href="#"> Reviews (0)</a></br> <a href="#"> Submit a review </a>
+            <a href="#"> Reviews ({{ sizeof($reviews)}})</a></br> <a href="#"> Submit a review </a>
         </div>
       </div>
     </div>
     <div class="row">
         <div class="col-md">
-
         </div>
     </div>
    </div>

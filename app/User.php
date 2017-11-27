@@ -34,4 +34,13 @@ class User extends Authenticatable
     public function getName(){
       return $this->name;
     }
+
+    public function reviews(){
+      return $this->hasMany('App\Review');
+    }
+
+    public function getId(){
+      return $this->id;
+    }
+    
 }

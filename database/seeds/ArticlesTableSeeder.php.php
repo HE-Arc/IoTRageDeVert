@@ -9,7 +9,6 @@ class ArticlesTableSeeder extends Seeder
      *
      * @return void
      */
-
      function getRandomString(){
        echo('test');
        $titles = [
@@ -20,7 +19,6 @@ class ArticlesTableSeeder extends Seeder
        ];
        return $titles[rand(0,3)];
      }
-
     public function run()
     {
       $users = DB::table('users')->get();
