@@ -1,6 +1,8 @@
 <!-- Stored in resources/views/child.blade.php -->
-@extends('app')
+@extends('layouts.app')
+
 @section('title', 'Page Title')
+
 @section('sidebar')
     @parent
     <p>This is appended to the master sidebar.</p>
@@ -32,8 +34,7 @@ $articles = App\Article::all();
     <div class="row">
         <div class="col-md">
         </div>
-    </div>
-   </div>
-@endforeach
-</div>
+       </div>
+     @endforeach
+  </div>
 @endsection
