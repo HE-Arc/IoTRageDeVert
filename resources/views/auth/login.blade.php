@@ -40,21 +40,23 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
+                          <div class="col-md-6 col-md-offset-4">
+                              <div class="checkbox">
+                                  <label>
+                                      <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                  </label>
+                              </div>
+                          </div>
                         </div>
-                        <div>
-                          <p>
-                            You don't have an account?
-                            <a class="btn btn-link" href="{{ route('register') }}">
-                                Sign in!
-                            </a>
-                          </p>
+                        <div class="form-group">
+                          <div class="col-md-6 col-md-offset-4">
+                            <p>
+                              You don't have an account?
+                              <a class="btn btn-link" href="{{ route('register') }}">
+                                  Sign in!
+                              </a>
+                            </p>
+                        </div>
                         </div>
 
                         <div class="form-group">
