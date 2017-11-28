@@ -48,7 +48,7 @@
                               </div>
                           </div>
                         </div>
-                        <div class="form-group">
+                        <div>
                           <div class="col-md-6 col-md-offset-4">
                             <p>
                               You don't have an account?

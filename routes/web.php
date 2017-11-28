@@ -30,6 +30,8 @@ Route::post('/login', function () {
 Route::get('/articles', 'ArticlesController@showAll');
 Route::get('/articles/{id}', 'ArticlesController@showOne');
 Route::get('/debug','DebugController@show');
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
