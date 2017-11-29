@@ -20,9 +20,9 @@
         </ul>
       </div>
       <div class="col-4">
-        <img src="{{URL::to("pics/pub-internet-rides.jpg")}}">
-        <img src="{{URL::to("pics/pubs-internet.jpg")}}">
-        <img src="{{URL::to("pics/regime-avant-apres.jpg")}}">
+        <img src="https://cdn3.opnminded.com/wp-content/uploads/2013/10/pubs-internet.jpg">
+        <img src="https://cdn1.opnminded.com/wp-content/uploads/2013/10/pub-internet-rides.jpg">
+        <img src="https://cdn1.opnminded.com/wp-content/uploads/2013/10/regime-avant-apres.jpg">
       </div>
   </div>
 </div>
