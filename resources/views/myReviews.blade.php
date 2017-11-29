@@ -4,9 +4,9 @@
   <h1>Your reviews</h1>
   @php
     Use App\Article;
-    $articles = App\Article::where('id', Auth::id())->get();
+    $articles = App\Article::where('user_id', Auth::id())->get();
   @endphp
-  @if($articles == '')
+  @if($articles == "[]")
     <p>You have no reviews... Feel free to make one. ;-)</p>
   @endif
   @foreach($articles as $a)
