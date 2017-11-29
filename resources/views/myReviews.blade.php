@@ -9,8 +9,5 @@
   @if($articles == "[]")
     <p>You have no reviews... Feel free to make one. ;-)</p>
   @endif
-  @foreach($articles as $a)
-    <h1>{{$a->title}}</h2>
-    <p>{{$a->content}}</p>
-  @endforeach
+  @include('inc/articleList')
 @endsection
