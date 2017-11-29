@@ -15,7 +15,8 @@ $articles = App\Article::all();
 <div class="container-fluid">
 <h2>{{__('articles.header')}}</h2>
 @foreach($articles as $a)
-  @php $reviews = $a->reviews;
+  @php
+    $reviews = $a->reviews;
   @endphp
   <div class="rounded">
     <div class="article-container row">
@@ -27,7 +28,7 @@ $articles = App\Article::all();
           </div>
         </div>
         <div class="col-md-3 col-xs-12 bg-light">
-            <a href="#"> Reviews ({{ sizeof($reviews)}})</a></br> <a href="#"> Submit a review </a>
+            <a href="#"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br> <a href="#"> {{ __('articles.submit_review')}}</a>
         </div>
       </div>
     </div>
