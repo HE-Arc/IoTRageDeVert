@@ -980,6 +980,7 @@ module.exports = __webpack_require__(42);
 __webpack_require__(11);
 
 window.Vue = __webpack_require__(35);
+window.$ = window.jQuery = __webpack_require__(14);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

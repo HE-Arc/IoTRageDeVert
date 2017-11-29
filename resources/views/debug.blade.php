@@ -1,12 +1,9 @@
-<?php
-$articles = App\Article::all();
-$i = 0;
-     for ($i;$i < 10; $i++ ){
-       $articleNum = rand(0,19);
-       $article = $articles[6];
-       $name = $article->user()->first()->getName();
-       echo("Article : " . $article->getTitle() . " User name : " . $name);
-       echo("</br>");
-       echo("Article id : " . $article->getId());
-     }
-?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="{{ asset('js/highlight.js') }}"></script>
+
+
+<div class="target-text">
+<p>The quick brown fox jumps over the lazy dog</p>
+</div>
+<br />
+<div class="selected-text"></div>

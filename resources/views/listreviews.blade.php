@@ -13,7 +13,7 @@
       <div class="col">
         <ul class="list-group">
       @foreach ($article->first()->reviews as $r)
-          <li class="list-group-item list-group-item-success">
+          <li class="list-group-item">
             <em>{{$r->getTitle()}}</br></em> by <a href="#">{{$r->user->getName()}}</a>
           </li>
       @endforeach
