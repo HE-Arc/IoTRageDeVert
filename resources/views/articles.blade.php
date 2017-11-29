@@ -28,7 +28,7 @@ $articles = App\Article::all();
           </div>
         </div>
         <div class="col-md-3 col-xs-12 bg-light">
-            <a href="#"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br> <a href="#"> {{ __('articles.submit_review')}}</a>
+            <a href="articles/{{$a->id}}/reviews"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br> <a href="#"> {{ __('articles.submit_review')}}</a>
         </div>
       </div>
     </div>
