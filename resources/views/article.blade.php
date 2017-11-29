@@ -16,4 +16,5 @@ $articles = App\Article::where('id', $test)->get();
   <h1>{{$a->title}}</h2>
   <p>{{$a->content}}</p>
 @endforeach
+
 @endsection
