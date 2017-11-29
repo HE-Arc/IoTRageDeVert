@@ -14,15 +14,17 @@
   <div class="collapse navbar-collapse"
   id="navbarsDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="{{URL::to('/')}}">Home <span class="sr-only">(current)</span></a>
+      <li class="nav-item {{ (Request::is('/') || Request::is('home')) ? "active" : "" }}">
+        <a class="nav-link" href="{{URL::to('/')}}">Home</a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item {{ Request::is('articles') ? "active" : ''}}">
         <a class="nav-link" href="{{URL::to('/articles')}}">Articles</a>
       </li>
       @if (Auth::check())
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Account</a>
+          <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {{{ isset(Auth::user()->name) ? Auth::user()->name : Auth::user()->email }}}
+          </a>
           <div class="dropdown-menu" aria-labelledby="dropdown01">
             <a class="dropdown-item" href="{{URL::to('/logout')}}">Log out</a>
             <a class="dropdown-item" href="#">Messages</a>
@@ -30,10 +32,10 @@
           </div>
         </li>
       @else
-        <li class="nav-item">
+        <li class="nav-item {{ Request::is('login') ? "active" : ''}}">
           <a class="nav-link" href="{{URL::to('/login')}}">Log in</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item {{ Request::is('register') ? "active" : ''}}">
           <a class="nav-link" href="{{URL::to('/register')}}">Sign in</a>
         </li>
       @endif

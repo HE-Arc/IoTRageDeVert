@@ -23,10 +23,6 @@ Route::get('/contact', function () {
     return view("contact");
 });
 
-Route::post('/login', function () {
-    return view("login");
-});
-
 Route::get('/articles', 'ArticlesController@showAll');
 Route::get('/articles/{id}', 'ArticlesController@showOne');
 Route::get('/debug','DebugController@show');
