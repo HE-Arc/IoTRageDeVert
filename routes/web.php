@@ -27,6 +27,10 @@ Route::get('/myReviews', function () {
     return view("myReviews");
 });
 
+Route::get('/reviewEditor', function () {
+    return view("reviewEditor");
+});
+
 Route::get('/articles', 'ArticlesController@showAll');
 Route::get('/articles/{id}', 'ArticlesController@showOne');
 Route::get('/articles/{id}/reviews', 'ReviewsController@showAll');
