@@ -13,7 +13,7 @@ class ReviewsController extends Controller
   public function showOne($reviewid){
     return view('review', ['reviewid' => $reviewid]);
   }
-  public function showNew($articleid){
-    return view('newreview', ['articleid' => $articleid]);
+  public function showNew($id){
+    return view('newreview', ['article_id' => $id]);
   }
 }
