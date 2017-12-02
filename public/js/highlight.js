@@ -36,6 +36,28 @@ var text = "";
         }
     } else if (document.selection && document.selection.type != "Control") {
         text = document.selection.createRange().text;
+        if (text != ""){
+          //do stuff
+
+          //$(".target-text").html(targetText);
+          //console.log(targetText.replace('/<span.*>/', '//'));
+          //console.log("BRUT");
+          //console.log($(".target-text").html());
+          //console.log("AFTER EDIT");
+          //newText = $(".target-text").html().replace(/<span.*>/, ' ');
+          //console.log(newText);
+          $(".target-text").find("span").children().unwrap();
+          console.log($(".target-text").html());
+          //newText = $(".target-text").html().replace(/<\\span>/, ' ');
+          //console.log(newText);
+          //var spans = $('.highlight');
+          //  $(".target-text").find('.highlight').unwrap();
+          //$(".annotation-section").append(text);
+          wrapSelectedText();
+                        //console.log($(".target-text").html());
+
+         $(".floating-button").height(window.innerHeight);
+        }
     }
   }
 

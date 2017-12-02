@@ -8,13 +8,25 @@
 @endsection
 @section('content')
 
-@php
-Use App\Article;
-$articles = App\Article::where('id', $test)->get();
-@endphp
-@foreach($articles as $a)
-  <h1>{{$a->title}}</h2>
-  <p>{{$a->content}}</p>
-@endforeach
+<div class="container">
+  <div class="row">
+    <div class="col-9">
+      @php
+      Use App\Article;
+      $articles = App\Article::where('id', $test)->get();
+      @endphp
+      @foreach($articles as $a)
+        <h1>{{$a->title}}</h2>
+        <em>Submitted by {{$a->user()->first()->getName()}}</em></br>
+        <p>{{$a->content}}</p>
+      @endforeach
 
+    </div>
+    <div class="col-3">
+      <div class="submit-review-button">
+        <input type="button" value="Submit review">
+      </div>
+    </div>
+  </div>
+</div>
 @endsection

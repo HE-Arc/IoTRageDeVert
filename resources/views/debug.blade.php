@@ -13,9 +13,13 @@
       <div class="target-text">
       <p>
   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas elit nulla, mollis a neque eu, mattis dictum elit. Ut sollicitudin porta purus, eget placerat orci vulputate at. Vivamus pretium velit id tristique tincidunt. Vivamus volutpat purus sit amet lacus pellentesque vestibulum quis et sem. Cras quis egestas dolor. Aenean eget tempor mauris. Sed nibh est, bibendum non tempor sed, mollis id erat. Nunc id nisl lacus. Nam mollis et orci at sodales. Vestibulum porta ut nulla quis ornare. Vivamus dictum tincidunt quam ac faucibus. Pellentesque vitae quam odio. Suspendisse in ligula blandit, elementum nibh ac, elementum quam. Aenean facilisis scelerisque mauris sed tristique. Phasellus fermentum massa dignissim arcu tempor tempus.
+
       </div>
     </div>
     <div class="col-3 annotation-section">
+      <div class"floating-button">
+        <input type="button" value="Submit review">
+      </div>
     </div>
   </div>
 </div>
