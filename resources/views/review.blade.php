@@ -2,10 +2,13 @@
 
 @section('content')
   @php
-    $review = App\Article::where('user_id', Auth::id())->get();
+    Use App\Review;
+    $review = App\Review::where('id', $review_id)->get();
   @endphp
 
-  <p>
-    REVIEW GOES HERE
-  </p>
+  <div class="container">
+    <h1>{{ $review->first()->getTitle() }}</h1>
+    <p>{{ $review->first()->getContent() }}</p>
+  </div>
+
 @endsection
