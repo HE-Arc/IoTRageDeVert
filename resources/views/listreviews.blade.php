@@ -14,7 +14,8 @@
         <ul class="list-group">
       @foreach ($article->first()->reviews as $r)
           <li class="list-group-item">
-            <em>{{$r->getTitle()}}</br></em> by <a href="#">{{$r->user->getName()}}</a>
+            <em><a href="/{{$r->id}}/review">{{$r->getTitle()}}</a></em></br>
+            by <a href="#">{{$r->user->getName()}}</a>
           </li>
       @endforeach
         </ul>

@@ -35,6 +35,7 @@ Route::get('/articles', 'ArticlesController@showAll');
 Route::get('/articles/{id}', 'ArticlesController@showOne');
 Route::get('/articles/{id}/reviews', 'ReviewsController@showAll');
 Route::get('/articles/{id}/newreview', 'ReviewsController@showNew');
+Route::get('/{id}/review', 'ReviewsController@showOne');
 
 Route::get('/debug','DebugController@show');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
