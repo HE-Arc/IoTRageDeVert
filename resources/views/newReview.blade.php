@@ -4,8 +4,9 @@
   @php
   $article = App\Article::where('id', $article_id)->get();
   @endphp
+  
   <div class="container">
-    
+
     <div class="row">
       <div class="col-sm-6">
         <h1>{{ $article->first()->getTitle() }} </h1>
