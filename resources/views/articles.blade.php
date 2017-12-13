@@ -13,7 +13,7 @@
   Use App\Article;
   $articles = App\Article::all();
   @endphp
-  
+
   <div class="container-fluid">
     <h2>{{__('articles.header')}}</h2>
     @foreach($articles as $a)
