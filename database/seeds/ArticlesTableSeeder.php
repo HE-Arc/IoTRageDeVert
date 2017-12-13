@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
 class ArticlesTableSeeder extends Seeder
 {
     /**
@@ -10,7 +9,6 @@ class ArticlesTableSeeder extends Seeder
      * @return void
      */
      function getRandomString(){
-       echo('test');
        $titles = [
          'Emploi fictif: David Guetta dans le viseur de la justice',
          'Les pyramides seraient en réalité des oeuvres créées par les egyptiens',

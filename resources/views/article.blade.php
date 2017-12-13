@@ -10,7 +10,8 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-9">
+
+    <div class="col-{{Auth::check() ? 9 : 12}}">
       @php
       Use App\Article;
       $articles = App\Article::where('id', $test)->get();
@@ -22,11 +23,13 @@
       @endforeach
 
     </div>
-    <div class="col-3">
-      <div class="submit-review-button">
-        <input type="button" value="Submit review">
+    @if (Auth::check())
+      <div class="col-3">
+        <div class="submit-review-button">
+          <input type="button" value="Submit review">
+        </div>
       </div>
-    </div>
+    @endif
   </div>
 </div>
 @endsection

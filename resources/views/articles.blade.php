@@ -31,7 +31,9 @@
             </div>
             <div class="col-md-3 col-xs-12 bg-light">
                 <a href="articles/{{$a->id}}/reviews"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br>
-                <a href="articles/{{$a->id}}/newreview"> {{ __('articles.submit_review')}}</a>
+                @if (Auth::check())
+                  <a href="articles/{{$a->id}}/newreview"> {{ __('articles.submit_review')}}</a>
+                @endif
             </div>
           </div>
         </div>
