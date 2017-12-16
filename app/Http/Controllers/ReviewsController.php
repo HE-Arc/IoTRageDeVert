@@ -25,6 +25,26 @@ class ReviewsController extends Controller
       return view('editReview', ['id' => $articleid]);
   }
 
+  public function update(Request $request){
+        $content = $request->input('content');
+        $title = $request->input('title');
+        $article_id = $request->input('article_id');
+        $user_id  = $request->input('user_id');
+        $id = $request->input('id');
+        $now = new \DateTime();
+        DB::table('reviews')
+          ->where('id', $id)
+          ->update([
+              'title' => $title,
+              'content' => $content,
+              'article_id' => $article_id,
+              'user_id' => $user_id,
+              'updated_at' => $now
+          ]);
+
+        return view('home');
+      }
+
   public function submit(Request $request){
         $content = $request->input('content');
         $title = $request->input('title');

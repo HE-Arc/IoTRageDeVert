@@ -17,12 +17,13 @@ $review = App\Review::where('id', $id)->get()->First();
   <div class="row">
     <div class="col-sm-12">
       @if (Auth::check() && Auth::id() == $review->user_id)
-        <form class="form-horizontal" method="POST" action="{{URL::to('/article_submit')}}">
+        <form class="form-horizontal" method="POST" action="{{URL::to('/review_update')}}">
           <h2>Edit review</h2>
           <label for="title" class="control-label">Title</label>
           <input id="title" type="text" class="form-control" name="title" value="{{{$review->title}}}" required autofocus>
 
           <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+          <input type="hidden" name="id" value="{{$review->id}}">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
           <textarea class="form-control" id="content" rows="5" name="content">

@@ -44,6 +44,9 @@ Route::get('/editReview/{id}', 'ReviewsController@edit');
 Route::post('/article_submit', 'ArticlesController@submit');
 Route::post('/review_submit', 'ReviewsController@submit');
 
+Route::post('/article_update', 'ArticlesController@update');
+Route::post('/review_update', 'ReviewsController@update');
+
 Route::get('/debug','DebugController@show');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 

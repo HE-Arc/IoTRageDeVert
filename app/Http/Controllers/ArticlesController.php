@@ -39,6 +39,23 @@ class ArticlesController extends Controller
         return view('editArticle', ['id' => $articleid]);
     }
 
+    public function update(Request $request){
+      $content = $request->input('content');
+      $title = $request->input('title');
+      $user_id = $request->input('user_id');
+      $id = $request->input('id');
+      $now = new \DateTime();
+      DB::table('articles')
+        ->where('id', $id)
+        ->update([
+            'title' => $title,
+            'content' => $content,
+            'user_id' => $user_id,
+            'updated_at' => $now
+        ]);
+      return view('articles');
+    }
+
     public function submit(Request $request){
       $content = $request->input('content');
       $title = $request->input('title');
