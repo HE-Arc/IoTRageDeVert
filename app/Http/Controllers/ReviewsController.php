@@ -20,9 +20,9 @@ class ReviewsController extends Controller
     return view('newReview', ['article_id' => $id]);
   }
 
-  public function edit($articleid)
+  public function edit($id)
   {
-      return view('editReview', ['id' => $articleid]);
+      return view('editReview', ['id' => $id]);
   }
 
   public function update(Request $request){

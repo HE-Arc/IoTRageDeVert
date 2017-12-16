@@ -17,7 +17,7 @@
               <em><a href={{URL::to('/' . $r->id . '/review')}}>{{$r->getTitle()}}</a></em></br>
               by <a href="#">{{$r->user->getName()}}</a></br>
               @if (Auth::check() && Auth::id() == $r->user_id)
-                <a href="{{URL::to('/editReview/{id}')}}"> Edit review</a></br>
+                <a href={{URL::to('/editReview/' . $r->id )}}> Edit review</a></br>
               @endif
             </li>
       @endforeach
