@@ -54,7 +54,7 @@ class ArticlesController extends Controller
             'user_id' => $user_id,
             'updated_at' => $now
         ]);
-      return view('articles');
+      return view('home');
     }
 
     public function submit(Request $request){
