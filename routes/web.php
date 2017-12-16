@@ -38,6 +38,7 @@ Route::get('/{id}/review', 'ReviewsController@showOne');
 Route::get('/articles/{id}/newreview', 'ReviewsController@showNew');
 Route::get('/newarticle', 'ArticlesController@createNew');
 
+Route::get('/editArticle/{id}', 'ArticlesController@edit');
 
 Route::post('/article_submit', 'ArticlesController@submit');
 Route::post('/review_submit', 'ReviewsController@submit');

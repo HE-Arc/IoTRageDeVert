@@ -31,6 +31,11 @@ class ArticlesController extends Controller
       return view('newArticle');
     }
 
+    public function edit($articleid)
+    {
+        return view('editArticle', ['id' => $articleid]);
+    }
+
     public function submit(Request $request){
       $content = $request->input('content');
       $title = $request->input('title');
