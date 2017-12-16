@@ -14,6 +14,7 @@ Use App\Article;
 $review = App\Review::where('id', $id)->get()->First();
 @endphp
 <div class="container">
+  {{{$review}}}
   <div class="row">
     <div class="col-sm-12">
       @if (Auth::check() && Auth::id() == $review->user_id)
