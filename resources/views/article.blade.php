@@ -13,24 +13,23 @@
 
     <div class="col-{{Auth::check() ? 9 : 12}}">
       @php
-      Use App\Article;
-      $articles = App\Article::where('id', $test)->get();
-      $reviews = $articles->first()->reviews;
+      $reviews = $c_article->first()->reviews;
       @endphp
-      @foreach($articles as $a)
+      @foreach($c_article as $a)
 
         <h1>{{$a->title}}</h2>
         <em>Submitted by {{$a->user()->first()->getName()}}</em></br>
         <p>{!!$a->content!!}</p>
-      @endforeach
-
     </div>
-    <div class="col-{{Auth::check() ? 3 : 0}}">
-      <a href="{{$a->id}}/reviews"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br>
-      @if (Auth::check())
-        <a href="articles/{{$a->id}}/newreview"> {{ __('articles.submit_review')}}</a>
-      @endif
-    </div>
+    @if (Auth::check())
+      <div class="col-3">
+        <div class="submit-review-button">
+          <input type="button" value="Submit review">
+          <a href="articles/{{$a->id}}/reviews"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br>
+        </div>
+      </div>
+    @endif
+    @endforeach
   </div>
 </div>
 @endsection

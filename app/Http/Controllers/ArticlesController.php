@@ -27,7 +27,8 @@ class ArticlesController extends Controller
     }
 
     public function showOne($articleid){
-      return view('article', ['test' => $articleid]);
+      $c_article = Article::where('id', $articleid)->get();
+      return view('article', ['test' => $articleid, 'c_article' => $c_article]);
     }
 
     public function createNew(){
