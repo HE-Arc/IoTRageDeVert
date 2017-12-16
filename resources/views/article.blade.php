@@ -15,11 +15,13 @@
       @php
       Use App\Article;
       $articles = App\Article::where('id', $test)->get();
+      $reviews = $articles->first()->reviews;
       @endphp
       @foreach($articles as $a)
+
         <h1>{{$a->title}}</h2>
         <em>Submitted by {{$a->user()->first()->getName()}}</em></br>
-        <p>{{$a->content}}</p>
+        <p>{!!$a->content!!}</p>
       @endforeach
 
     </div>
@@ -27,6 +29,7 @@
       <div class="col-3">
         <div class="submit-review-button">
           <input type="button" value="Submit review">
+          <a href="articles/{{$a->id}}/reviews"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br>
         </div>
       </div>
     @endif

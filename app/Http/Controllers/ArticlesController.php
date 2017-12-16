@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use App\User;
 use App\Http\Controllers\Controller;
+use DB;
 
 class ArticlesController extends Controller
 {
@@ -24,5 +25,21 @@ class ArticlesController extends Controller
 
     public function showOne($articleid){
       return view('article', ['test' => $articleid]);
+    }
+
+    public function createNew(){
+      return view('newArticle');
+    }
+
+    public function submit(Request $request){
+      $content = $request->input('content');
+      $title = $request->input('title');
+      $user_id = $request->input('user_id');
+      DB::table('articles')->insert([
+            'title' => $title,
+            'content' => $content,
+            'user_id' => $user_id
+        ]);
+      return view('articles');
     }
 }

@@ -23,8 +23,8 @@ Route::get('/contact', function () {
     return view("contact");
 });
 
-Route::get('/myReviews', function () {
-    return view("myReviews");
+Route::get('/myArticles', function () {
+    return view("myArticles");
 });
 
 Route::get('/reviewEditor', function () {
@@ -32,11 +32,14 @@ Route::get('/reviewEditor', function () {
 });
 
 Route::get('/articles', 'ArticlesController@showAll');
-Route::get('/articles/{id}', 'ArticlesController@showOne');
 Route::get('/articles/{id}/reviews', 'ReviewsController@showAll');
-Route::get('/articles/{id}/newreview', 'ReviewsController@showNew');
+Route::get('/articles/{id}', 'ArticlesController@showOne');
 Route::get('/{id}/review', 'ReviewsController@showOne');
+Route::get('/articles/{id}/newreview', 'ReviewsController@showNew');
+Route::get('/newarticle', 'ArticlesController@createNew');
 
+
+Route::post('/article_submit', 'ArticlesController@submit');
 Route::post('/review_submit', 'ReviewsController@submit');
 
 Route::get('/debug','DebugController@show');
