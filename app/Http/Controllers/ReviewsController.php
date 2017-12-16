@@ -17,7 +17,7 @@ class ReviewsController extends Controller
   }
 
   public function showNew($id){
-    return view('newreview', ['article_id' => $id]);
+    return view('newReview', ['article_id' => $id]);
   }
 
   public function edit($articleid)
