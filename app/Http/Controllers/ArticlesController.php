@@ -35,10 +35,13 @@ class ArticlesController extends Controller
       $content = $request->input('content');
       $title = $request->input('title');
       $user_id = $request->input('user_id');
+      $now = new \DateTime();
       DB::table('articles')->insert([
             'title' => $title,
             'content' => $content,
-            'user_id' => $user_id
+            'user_id' => $user_id,
+            'created_at' => $now,
+            'updated_at' => $now
         ]);
       return view('articles');
     }
