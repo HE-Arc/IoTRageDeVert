@@ -43,7 +43,7 @@ Route::post('/article_submit', 'ArticlesController@submit');
 Route::post('/review_submit', 'ReviewsController@submit');
 
 Route::get('/debug','DebugController@show');
-Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
+Route::post('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Auth::routes();
 
