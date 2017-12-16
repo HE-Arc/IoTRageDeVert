@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+Use App\Article;
 use App\User;
 use App\Http\Controllers\Controller;
 use DB;
+
 
 class ArticlesController extends Controller
 {
@@ -20,7 +22,8 @@ class ArticlesController extends Controller
     }
 
     public function showAll(){
-      return view('articles', ['name' => 'Jebediah']);
+      $c_articles = Article::all();
+      return view('articles', ['name' => 'Jebediah', 'c_articles' => $c_articles]);
     }
 
     public function showOne($articleid){

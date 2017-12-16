@@ -9,17 +9,12 @@
 @endsection
 
 @section('content')
-  @php
-  Use App\Article;
-  $articles = App\Article::all();
-  @endphp
-
   <div class="container-fluid">
       <h2>{{__('articles.header')}}</h2>
       <div class="mb-2">
         <a href="newarticle/">Create new article</a>
       </div>
-    @foreach($articles as $a)
+    @foreach($c_articles as $a)
       @php
         $reviews = $a->reviews;
       @endphp
