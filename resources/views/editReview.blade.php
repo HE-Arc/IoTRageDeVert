@@ -11,12 +11,9 @@
 </script>
 @php
 Use App\Article;
-$article = App\Article::where('id', $id)->get()->First();
-$review = $article->reviews->First();
+$review = App\Review::where('id', $id)->get()->First();
 @endphp
 <div class="container">
-  {{{Auth::id()}}}
-  {{{$review->user_id}}}
   <div class="row">
     <div class="col-sm-12">
       @if (Auth::check() && Auth::id() == $review->user_id)
