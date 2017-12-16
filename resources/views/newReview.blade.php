@@ -15,8 +15,8 @@
   @endphp
 
   <div class="container">
-    <h1>{{{ $article->first()->getTitle() }}} </h1>
-    <p>{!! $article->first()->getContent() !!} </p>
+    <h1>{{$article->first()->getTitle()}}</h1>
+    {!!$article->first()->getContent()!!}
 
     <form class="form-horizontal" method="POST" action="{{URL::to('/review_submit')}}">
       <input type="hidden" name="article_id" value="{{$article_id}}">
@@ -34,7 +34,12 @@
 
       <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }} mx-2">
         <label for="review">Review</label>
-        <textarea class="form-control" id="content" rows="5" name="content">{{$article->first()->getContent()}}</textarea>
+        <textarea class="form-control" id="content" rows="5" name="content">
+          <h1>{{$article->first()->getTitle()}}</h1>
+          {{$article->first()->getContent()}}
+          </br>
+          <h1>Review title</h1>
+        </textarea>
           @if ($errors->has('content'))
             <span class="help-block">
               <strong>{{ $errors->first('content') }}</strong>
