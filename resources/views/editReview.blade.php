@@ -23,6 +23,7 @@ $review = App\Review::where('id', $id)->get()->First();
           <input id="title" type="text" class="form-control" name="title" value="{{{$review->title}}}" required autofocus>
 
           <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+          <input type="hidden" name="article_id" value="{{$review->article_id}}">
           <input type="hidden" name="id" value="{{$review->id}}">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
