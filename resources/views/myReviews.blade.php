@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <h1>Your Reviews</h1>
+  <h1>Your reviews</h1>
   @php
     Use App\Review;
     $review = App\Review::where('user_id', Auth::id())->get();
