@@ -26,7 +26,7 @@
 
     </div>
     <div class="col-{{Auth::check() ? 3 : 0}}">
-      <a href="articles/{{$a->id}}/reviews"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br>
+      <a href="{{$a->id}}/reviews"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br>
       @if (Auth::check())
         <a href="articles/{{$a->id}}/newreview"> {{ __('articles.submit_review')}}</a>
       @endif
