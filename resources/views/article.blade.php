@@ -25,14 +25,12 @@
       @endforeach
 
     </div>
-    @if (Auth::check())
-      <div class="col-3">
-        <div class="submit-review-button">
-          <input type="button" value="Submit review">
-          <a href="articles/{{$a->id}}/reviews"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br>
-        </div>
-      </div>
-    @endif
+    <div class="col-{{Auth::check() ? 3 : 0}}">
+      <a href="articles/{{$a->id}}/reviews"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br>
+      @if (Auth::check())
+        <a href="articles/{{$a->id}}/newreview"> {{ __('articles.submit_review')}}</a>
+      @endif
+    </div>
   </div>
 </div>
 @endsection

@@ -20,46 +20,38 @@
   @endphp
 
   <div class="container">
-    <div class="row">
-
-      <div class="col-sm-6">
-        <h1>{{{ $article->first()->getTitle() }}} </h1>
-        <p>{!! $article->first()->getContent() !!} </p>
+    <h1>{{{ $article->first()->getTitle() }}} </h1>
+    <p>{!! $article->first()->getContent() !!} </p>
+    
+    <form class="form-horizontal" method="POST" action="{{URL::to('/review_submit')}}">
+      <input type="hidden" name="article_id" value="{{$article_id}}">
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
+      <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+      <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }} mx-2">
+        <label for="title" class="control-label">Title</label>
+        <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
+        @if ($errors->has('title'))
+          <span class="help-block">
+            <strong>{{ $errors->first('title') }}</strong>
+          </span>
+        @endif
       </div>
 
-      <div class="col-sm-6">
-        <form class="form-horizontal" method="POST" action="{{URL::to('/review_submit')}}">
-
-          <input type="hidden" name="article_id" value="{{$article_id}}">
-          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-          <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
-          <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }} mx-2">
-            <label for="title" class="control-label">Title</label>
-            <input id="title" type="text" class="form-control" name="title" value="{{ old('title') }}" required autofocus>
-            @if ($errors->has('title'))
-              <span class="help-block">
-                <strong>{{ $errors->first('title') }}</strong>
-              </span>
-            @endif
-          </div>
-
-          <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }} mx-2">
-            <label for="review">Review</label>
-            <textarea class="form-control" id="content" rows="5" name="content">{{$article->first()->getContent()}}</textarea>
-              @if ($errors->has('content'))
-                <span class="help-block">
-                  <strong>{{ $errors->first('content') }}</strong>
-                </span>
-              @endif
-          </div>
-
-          <button type="submit" class="btn btn-primary">
-              Send Review
-          </button>
-
-        </form>
+      <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }} mx-2">
+        <label for="review">Review</label>
+        <textarea class="form-control" id="content" rows="5" name="content">{{$article->first()->getContent()}}</textarea>
+          @if ($errors->has('content'))
+            <span class="help-block">
+              <strong>{{ $errors->first('content') }}</strong>
+            </span>
+          @endif
       </div>
-    </div>
+
+      <button type="submit" class="btn btn-primary">
+          Send Review
+      </button>
+
+    </form>
   </div>
 
 

@@ -15,7 +15,10 @@
   @endphp
 
   <div class="container-fluid">
-    <h2>{{__('articles.header')}}</h2>
+      <h2>{{__('articles.header')}}</h2>
+      <div class="mb-2">
+        <a href="newarticle/">Create new article</a>
+      </div>
     @foreach($articles as $a)
       @php
         $reviews = $a->reviews;
