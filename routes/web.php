@@ -27,6 +27,10 @@ Route::get('/myArticles', function () {
     return view("myArticles");
 });
 
+Route::get('/myReviews', function () {
+    return view("myReviews");
+});
+
 Route::get('/reviewEditor', function () {
     return view("reviewEditor");
 });

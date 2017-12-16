@@ -23,7 +23,13 @@
             </div>
           </div>
           <div class="col-md-3 col-xs-12 bg-light">
-              <a href="articles/{{$a->id}}/reviews"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br> <a href="#"> {{ __('articles.submit_review')}}</a>
+              <a href="articles/{{$a->id}}/reviews"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br>
+              @if (Auth::check())
+                <a href="articles/{{$a->id}}/newreview"> {{ __('articles.submit_review')}}</a></br>
+                @if (Auth::id() == $a->user_id)
+                  <a href="editArticle/{{$a->id}}"> Edit article</a></br>
+                @endif
+              @endif
           </div>
         </div>
       </div>
