@@ -16,7 +16,7 @@ $review = App\Review::where('id', $id)->get()->First();
 <div class="container">
   <div class="row">
     <div class="col-sm-12">
-      @if (Auth::check() && !$review.isEmpty() && Auth::id() == $review->user_id)
+      @if (Auth::check() && !$review->isEmpty() && Auth::id() == $review->user_id)
         <form class="form-horizontal" method="POST" action="{{URL::to('/review_update')}}">
           <h2>Edit review</h2>
           <label for="title" class="control-label">Title</label>
