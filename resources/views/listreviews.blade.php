@@ -13,10 +13,13 @@
       <div class="col">
         <ul class="list-group">
       @foreach ($article->first()->reviews as $r)
-          <li class="list-group-item">
-            <em><a href={{URL::to('/' . $r->id . '/review')}}>{{$r->getTitle()}}</a></em></br>
-            by <a href="#">{{$r->user->getName()}}</a>
-          </li>
+            <li class="list-group-item">
+              <em><a href={{URL::to('/' . $r->id . '/review')}}>{{$r->getTitle()}}</a></em></br>
+              by <a href="#">{{$r->user->getName()}}</a></br>
+              @if (Auth::check() && Auth::id() == $r->user_id)
+                <a href="/Open-Review/public/editReview/{{$r->user_id}}"> Edit review</a></br>
+              @endif
+            </li>
       @endforeach
         </ul>
       </div>
