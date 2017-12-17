@@ -3,11 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use Illuminate\Support\Str;
 class Review extends Model
 {
   public function getTitle(){
     return $this->title;
+  }
+  public function excerpt($size){
+    return Str::words($this->title, $size, $end='...');
   }
   public function getContent(){
     return $this->content;
