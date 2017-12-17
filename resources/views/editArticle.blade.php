@@ -15,8 +15,8 @@ $article = $c_article;
 //$article = App\Article::where('id', $id)->get()->First();
 @endphp
 <div class="container">
-  <h1>{{$article->first()->getTitle()}}</h1>
-  {!!$article->first()->getContent()!!}
+  <h1>{{$article->getTitle()}}</h1>
+  {!!$article->getContent()!!}
   <div class="row">
     <div class="col-sm-12">
       @if (Auth::check() && Auth::id() == $article->user_id)
