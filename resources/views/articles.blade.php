@@ -59,6 +59,9 @@
                       Edit article
                     </a></br>
                   @endif
+                  @if (Auth::id() == 12)
+                    <a href={{URL::to('deleteArticle/' . $a->id)}}>Delete article</a>
+                  @endif
                 @endif
             </div>
           </div>

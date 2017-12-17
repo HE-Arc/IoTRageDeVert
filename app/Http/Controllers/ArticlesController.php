@@ -6,6 +6,7 @@ Use App\Article;
 use App\User;
 use App\Http\Controllers\Controller;
 use DB;
+use Auth;
 
 
 class ArticlesController extends Controller
@@ -75,4 +76,18 @@ class ArticlesController extends Controller
       $c_articles = Article::all();
       return view('articles', ['c_articles' => $c_articles, 'article_created' => $success]);
     }
+
+    public function delete($id){
+      //chut
+      if (Auth::check()){
+        $reviews =  Article::where('id', $id)->get()->First()->reviews();
+        foreach ($reviews as $r) {
+          Review::destroy($r->id());
+        }
+        Article::destroy($id);
+        $c_articles = Article::all();
+        return view('articles', ['c_articles' => $c_articles]);
+      }
+    }
+
 }

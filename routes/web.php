@@ -70,4 +70,6 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('deleteArticle/{id}', 'ArticlesController@delete');
 //Route::get('/debug','DebugController@show');
