@@ -20,10 +20,11 @@ class ReviewsController extends Controller
     return view('listreviews', ['article_id' => $id, 'article' => $article]);
   }
 
-  public function showOne($id){
-    $review = Review::where('id', $id)->get();
-    return view('review', ['review_id' => $id, 'review' => $review]);
-  }
+public function showOne(Review $review) {
+  //okok
+    return view('review', compact('review'));
+}
+
 
   public function showNew($id){
     $article = Article::where('id', $id)->get();

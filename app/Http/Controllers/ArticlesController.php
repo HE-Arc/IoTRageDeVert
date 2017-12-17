@@ -31,6 +31,7 @@ class ArticlesController extends Controller
       return view('article', ['test' => $articleid, 'c_article' => $c_article]);
     }
 
+
     public function createNew(){
       return view('newArticle');
     }
