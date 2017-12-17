@@ -4,13 +4,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Article;
+use App\Review;
+use Auth;
 use App\Http\Controllers\Controller;
 use DB;
 
 class ReviewsController extends Controller
 {
+  public function showUserReviews(){
+    $reviews = Review::where('user_id', Auth::id())->get();
+    return view('myReviews', ['reviews' => $reviews]);
+  }
   public function showAll($id){
-    return view('listreviews', ['article_id' => $id]);
+    $article = Article::where('id', $id)->get();
+    return view('listreviews', ['article_id' => $id, 'article' => $article]);
   }
 
   public function showOne($id){

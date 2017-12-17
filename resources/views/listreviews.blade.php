@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
   @php
-  $article = App\Article::where('id', $article_id)->get();
+  //$article = App\Article::where('id', $article_id)->get();
   @endphp
   <div class="container-fluid">
     <div class="row">

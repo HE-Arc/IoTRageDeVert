@@ -15,10 +15,7 @@
   <div class="collapse navbar-collapse"
   id="navbarsDefault">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item {{ (Request::is('/') || Request::is('home')) ? "active" : "" }}">
-        <a class="nav-link" href="{{URL::to('/')}}">Home</a>
-      </li>
-      <li class="nav-item {{ Request::is('articles') ? "active" : ''}}">
+      <li class="nav-item {{ Request::is('articles') || Request::is('/') ? "active" : ''}}">
         <a class="nav-link" href="{{URL::to('/articles')}}">Articles</a>
       </li>
       @if (Auth::check())

@@ -4,12 +4,12 @@
   <h1>Your reviews</h1>
   @php
     Use App\Review;
-    $review = App\Review::where('user_id', Auth::id())->get();
+
   @endphp
-  @if($review->isEmpty())
+  @if($reviews->isEmpty())
     <p>You have no reviews... Feel free to make one. ;-)</p>
   @endif
-  @foreach($review as $r)
+  @foreach($reviews as $r)
     <div class="rounded">
       <div class="article-container row">
         <div class="col-xs-12">
