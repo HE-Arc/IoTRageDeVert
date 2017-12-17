@@ -10,6 +10,12 @@ class Article extends Model
   {
       return $this->belongsTo('App\User');
   }
+  public function date_c(){
+    return $this->created_at;
+  }
+  public function date_u(){
+    return $this->updated_at; 
+  }
   public function reviews()
   {
     return $this->hasMany('App\Review');

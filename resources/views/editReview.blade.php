@@ -9,10 +9,7 @@
     toolbar1: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat'
   });
 </script>
-@php
-Use App\Article;
-$review = App\Review::where('id', $id)->get()->First();
-@endphp
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12">

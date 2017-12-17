@@ -21,16 +21,19 @@ class ReviewsController extends Controller
   }
 
   public function showOne($id){
-    return view('review', ['review_id' => $id]);
+    $review = Review::where('id', $id)->get();
+    return view('review', ['review_id' => $id, 'review' => $review]);
   }
 
   public function showNew($id){
-    return view('newReview', ['article_id' => $id]);
+    $article = Article::where('id', $id)->get();
+    return view('newReview', ['article_id' => $id, 'article' => $article]);
   }
 
   public function edit($id)
   {
-      return view('editReview', ['id' => $id]);
+      $review = Review::where('id', $id)->get()->First();
+      return view('editReview', ['id' => $id, 'review' => $review]);
   }
 
   public function update(Request $request){

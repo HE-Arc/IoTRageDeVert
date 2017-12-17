@@ -3,17 +3,7 @@
 <script src="{{ secure_asset('js/highlight.js') }}"></script>
 
 @section('content')
-
-  @php
-  //$tinymcepath = base_path('vendor\tinymce\tinymce\tinymce.js'); // marche pas wth
-  @endphp
-  <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
-
-  @php
-  $article = App\Article::where('id', $article_id)->get();
-
-  @endphp
-
+<script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
   <div class="container">
     <h1>{{$article->first()->getTitle()}}</h1>
     {!!$article->first()->getContent()!!}
