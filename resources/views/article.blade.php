@@ -25,10 +25,19 @@
     @if (Auth::check())
       <div class="col-3">
         <div class="submit-review-button">
-          <button class="btn btn-primary">
-            Submit review
-          </button>
-          <a href="articles/{{$a->id}}/reviews"> {{ __('articles.reviews')}} ({{ sizeof($reviews)}})</a></br>
+          <a href={{URL::to('articles/' . $a->id . '/newreview')}}>
+            <button class="btn btn-primary">
+              {{ __('articles.submit_review')}}
+            </button>
+          </a></br>
+          <a href={{URL::to('articles/' . $a->id . '/reviews')}}>
+            {{ __('articles.reviews')}} ({{ sizeof($reviews)}})
+          </a></br>
+          @if (Auth::id() == $a->user_id)
+            <a href={{URL::to('editArticle/' . $a->id)}}>
+              Edit article
+            </a></br>
+          @endif
         </div>
       </div>
     @endif

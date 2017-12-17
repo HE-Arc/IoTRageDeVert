@@ -5,6 +5,20 @@
 @section('content')
 <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
   <div class="container">
+    <h1>New review</h1>
+    <p>
+      Welcome to the review creator, the article has been copied within your
+      review to enable you to modify it as you please. Add your review bellow the
+      article.
+    </p>
+    <p>
+      Please keep the integrity
+      of the original article as intact as possible. Words might be highlighted,
+      slightly modified to better represent the original intent(greed) behind the
+      article, or you might just add random pictures of cats because why not. Use
+      the strikethrough to notify when you modify words from the original article.
+      Have fun.
+    </p>
     <h1>{{$article->first()->getTitle()}}</h1>
     {!!$article->first()->getContent()!!}
 
@@ -27,8 +41,6 @@
         <textarea class="form-control" id="content" rows="5" name="content">
           <h1>{{$article->first()->getTitle()}}</h1>
           {{$article->first()->getContent()}}
-          </br>
-          <h1>Review title</h1>
         </textarea>
           @if ($errors->has('content'))
             <span class="help-block">
