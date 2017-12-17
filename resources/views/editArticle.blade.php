@@ -11,7 +11,8 @@
 </script>
 @php
 Use App\Article;
-$article = App\Article::where('id', $id)->get()->First();
+$article = $c_article;
+//$article = App\Article::where('id', $id)->get()->First();
 @endphp
 <div class="container">
   <h1>{{$article->first()->getTitle()}}</h1>

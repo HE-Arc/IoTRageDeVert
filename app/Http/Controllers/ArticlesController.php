@@ -23,7 +23,7 @@ class ArticlesController extends Controller
 
     public function showAll(){
       $c_articles = Article::all();
-      return view('articles', ['name' => 'Jebediah', 'c_articles' => $c_articles]);
+      return view('articles', ['c_articles' => $c_articles]);
     }
 
     public function showOne($articleid){
@@ -37,7 +37,8 @@ class ArticlesController extends Controller
 
     public function edit($articleid)
     {
-        return view('editArticle', ['id' => $articleid]);
+        $c_article = Article::where('id', $articleid)->get()->First();
+        return view('editArticle', ['id' => $articleid, 'c_article' => $c_article]);
     }
 
     public function update(Request $request){
@@ -46,7 +47,7 @@ class ArticlesController extends Controller
       $user_id = $request->input('user_id');
       $id = $request->input('id');
       $now = new \DateTime();
-      DB::table('articles')
+      $success = DB::table('articles')
         ->where('id', $id)
         ->update([
             'title' => $title,
@@ -54,7 +55,8 @@ class ArticlesController extends Controller
             'user_id' => $user_id,
             'updated_at' => $now
         ]);
-      return view('home');
+      $c_articles = Article::all();
+      return view('articles', ['c_articles' => $c_articles, 'article_updated' => $success]);
     }
 
     public function submit(Request $request){
@@ -62,13 +64,14 @@ class ArticlesController extends Controller
       $title = $request->input('title');
       $user_id = $request->input('user_id');
       $now = new \DateTime();
-      DB::table('articles')->insert([
+      $success = DB::table('articles')->insert([
             'title' => $title,
             'content' => $content,
             'user_id' => $user_id,
             'created_at' => $now,
             'updated_at' => $now
         ]);
-      return view('articles');
+      $c_articles = Article::all();
+      return view('articles', ['c_articles' => $c_articles, 'article_created' => $success]);
     }
 }

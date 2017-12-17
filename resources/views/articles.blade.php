@@ -1,15 +1,34 @@
 <!-- Stored in resources/views/child.blade.php -->
 @extends('layouts.app')
-
 @section('title', 'Page Title')
-
 @section('sidebar')
     @parent
     <p>This is appended to the master sidebar.</p>
 @endsection
-
 @section('content')
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="{{ secure_asset('js/fade.js')}}"></script>
   <div class="container-fluid">
+    @if (isset($article_created) && $article_created)
+      <div class="alert alert-success slide-up" role="alert">
+        <p>Article submitted</p>
+      </div>
+    @endif
+    @if (isset($article_updated) && $article_updated)
+      <div class="alert alert-success slide-up" role="alert">
+        <p>Article updated</p>
+      </div>
+    @endif
+    @if (isset($review_created) && $review_created)
+      <div class="alert alert-success slide-up" role="alert">
+        <p>Review submitted</p>
+      </div>
+    @endif
+    @if (isset($review_updated) && $review_updated)
+      <div class="alert alert-success slide-up" role="alert">
+        <p>Review updated</p>
+      </div>
+    @endif
       <h2>{{__('articles.header')}}</h2>
       <div class="mb-2">
         <a href="newarticle/">Create new article</a>

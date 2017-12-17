@@ -30,7 +30,6 @@
             <a class="dropdown-item" href="{{URL::to('/logout')}}">Log out</a>
             <a class="dropdown-item" href="{{URL::to('/myArticles')}}">My articles</a>
             <a class="dropdown-item" href="{{URL::to('/myReviews')}}">My reviews</a>
-            <a class="dropdown-item" href="#">Settings</a>
           </div>
         </li>
       @else

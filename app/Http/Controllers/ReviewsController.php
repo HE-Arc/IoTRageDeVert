@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
+use App\Article;
 use App\Http\Controllers\Controller;
 use DB;
 
@@ -32,7 +33,7 @@ class ReviewsController extends Controller
         $user_id  = $request->input('user_id');
         $id = $request->input('id');
         $now = new \DateTime();
-        DB::table('reviews')
+        $success = DB::table('reviews')
           ->where('id', $id)
           ->update([
               'title' => $title,
@@ -41,8 +42,8 @@ class ReviewsController extends Controller
               'user_id' => $user_id,
               'updated_at' => $now
           ]);
-
-        return view('home');
+          $c_articles = Article::all();
+          return view('articles', ['c_articles' => $c_articles, 'review_updated' => $success]);
       }
 
   public function submit(Request $request){
@@ -51,7 +52,7 @@ class ReviewsController extends Controller
         $article_id = $request->input('article_id');
         $user_id  = $request->input('user_id');
         $now = new \DateTime();
-        DB::table('reviews')->insert([
+        $success = DB::table('reviews')->insert([
               'title' => $title,
               'content' => $content,
               'article_id' => $article_id,
@@ -59,7 +60,7 @@ class ReviewsController extends Controller
               'created_at' => $now,
               'updated_at' => $now
           ]);
-
-        return view('articles');
+        $c_articles = Article::all();
+        return view('articles', ['c_articles' => $c_articles, 'review_created' => $success]);
       }
 }
