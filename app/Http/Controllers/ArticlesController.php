@@ -50,7 +50,9 @@ class ArticlesController extends Controller
       $id = $request->input('id');
       $now = new \DateTime();
       $success = false;
-      if ($user_id == Auth::id()){
+      $art_test = Article::where('id', $id)->get()->First();
+
+      if ($art_test->user_id == Auth::id()){
         $success = DB::table('articles')
           ->where('id', $id)
           ->update([
