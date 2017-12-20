@@ -39,7 +39,7 @@ class ArticlesController extends Controller
 
     public function edit($articleid)
     {
-        $c_article = Article::where('id', Auth::id());
+        $c_article = Article::where('id', $articleid)->get()->First();
         return view('editArticle', ['id' => $articleid, 'c_article' => $c_article]);
     }
 
