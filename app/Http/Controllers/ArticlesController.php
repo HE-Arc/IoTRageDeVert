@@ -49,14 +49,17 @@ class ArticlesController extends Controller
       $user_id = $request->input('user_id');
       $id = $request->input('id');
       $now = new \DateTime();
-      $success = DB::table('articles')
-        ->where('id', $id)
-        ->update([
-            'title' => $title,
-            'content' => $content,
-            'user_id' => $user_id,
-            'updated_at' => $now
-        ]);
+      $success = false;
+      if ($user_id == Auth::id()){
+        $success = DB::table('articles')
+          ->where('id', $id)
+          ->update([
+              'title' => $title,
+              'content' => $content,
+              'user_id' => $user_id,
+              'updated_at' => $now
+          ]);
+      }
       $c_articles = Article::all();
       return view('articles', ['c_articles' => $c_articles, 'article_updated' => $success]);
     }
